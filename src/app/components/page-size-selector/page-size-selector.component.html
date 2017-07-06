@@ -1,0 +1,8 @@
+<form>
+    <label for="size">Show</label>
+    <select class="form-control inline-block" id="size"
+            name="size" [(ngModel)]="rowsOnPage" (ngModelChange)="setPageSize()">
+      <option *ngFor="let size of rowsOnPageSet" [ngValue]="size">{{size}} on page</option>
+      <option [ngValue]="all">all</option>
+    </select>
+</form>

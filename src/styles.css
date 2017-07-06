@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+.mb-tiny {
+    margin-bottom: 3px;
+}
+
+.inline-block {
+  display: inline-block;
+  width: auto;
+  vertical-align: middle;
+}
+
+.mr-medium {
+    margin-right: 10px;
+}
+
+.custom-container {
+    box-shadow:0px 0px 2px 1px #e8e8e8;
+    border-radius:5px;
+}
+
+.custom-container .table_area {
+    background:#fff; 
+    padding:0px;
+    border:1px solid #e7e7e7;
+    border-radius:0px 0px 5px 5px;
+}

@@ -1,0 +1,99 @@
+<div class="container">
+
+  <div class="clearfix mb-tiny">
+    <div class="inline-block pull-left mr-medium">
+      <app-page-size-selector [table]="mf"></app-page-size-selector>
+    </div>
+    <div class="inline-block pull-right">
+      <app-search [table]="mf" [data]="tableData"></app-search>
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+  <div class="clearfix mb-tiny">
+    <div class="inline-block pull-left mr-medium">
+      <button type="button" class="btn btn-primary" (click)="openCreateEditModal()">Create Invoice</button>
+    </div>
+  </div>
+</div>
+
+<div class="custom-container">
+  <div class="table_area">
+
+    <div class="table-responsive">
+      <div class="bootstrap-table">
+        <div class="fixed-table-container">
+          <div class="fixed-table-body">
+            <table class="table table-hover" [mfData]="tableData" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage">
+              <thead>
+                <tr>
+                  <th><button type="button" class="btn btn-primary" (click)="deleteInvoices()">Delete Selected</button></th>
+                  <th><app-sorter [by]="'internalNumber'">Internal Number</app-sorter></th>
+                  <th><app-sorter [by]="'proFormaDate'">Pro Forma Invoice Date</app-sorter></th>
+                  <th><app-sorter [by]="'finalDate'">Final Invoice Date</app-sorter></th>
+                  <th><app-sorter [by]="'proFormaNo'">Pro Forma Invoice No.</app-sorter></th>
+                  <th><app-sorter [by]="'finalNo'">Final Invoice No.</app-sorter></th>
+                  <th><app-sorter [by]="'providerName'">Provider Name</app-sorter></th>
+                  <th>Activities Value</th>
+                  <th>Gross Total</th>
+                  <th><app-sorter [by]="'invoiceStatus'">Invoice Status</app-sorter></th>
+                  <th><app-sorter [by]="'paymentStatus'">Payment Status</app-sorter></th>
+                  <th><app-sorter [by]="'paymentDueDate'">Payment Due Date</app-sorter></th>
+                  <th>Download Invoice</th>
+                  <th>Edit</th>
+                </tr>
+              </thead>
+
+              <tr *ngFor="let item of mf.data">
+                <td><input type="checkbox"
+                     [(ngModel)]="item.checked"
+                     (change)="onChange(item)"></td>
+                <td>{{ item.internalNumber }}</td>
+                <td>{{ item.proFormaDate }}</td>
+                <td>{{ item.finalDate }}</td>
+                <td>{{ item.proFormaNo }}</td>
+                <td>{{ item.finalNo }}</td>
+                <td>{{ item.providerName }}</td>
+                <td>{{ item.activitiesValue }}</td>
+                <td>{{ item.grossTotal }}</td>
+                <td>{{ item.invoiceStatus }}</td>
+                <td>{{ item.paymentStatus }}</td>
+                <td>{{ item.paymentDueDate }}</td>
+                <td>Download</td>
+                <td><a style="cursor: pointer" (click)="editInvoice(item)" class="text-nowrap">Edit</a></td>
+              </tr>
+
+              <tr *ngIf="!mf.data.length">
+                <td [attr.colspan]="10" class="center-text">No matching records found.</td>
+              </tr>
+
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="clearfix"></div>
+      <app-paginator [mfTable]="mf"></app-paginator>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" bsModal #createEditModal="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content mcare_widget">
+      <div class="header">Create / Edit Invoice</div>
+      <div class="modal-body">
+        <app-create-edit-form (onAdd)="onAdd($event)"
+                              (onCancel)="onCancel()"></app-create-edit-form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="spinner-parent-div" *ngIf="busy">
+  <img class="spinner-img" src="assets/spinner.svg" class="img-responsive" alt="">
+  <label class="spinner-lbl">Please Wait...</label>
+</div>

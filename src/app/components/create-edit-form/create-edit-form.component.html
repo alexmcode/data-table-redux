@@ -1,0 +1,90 @@
+<form [formGroup]="createEditForm" class="form form-horizontal" (ngSubmit)="addChangeInvoice(f)" #f="ngForm">
+  <div class="row">
+    <label class="control-label col-sm-2">internalNumber:</label>
+    <div class="col-sm-10">
+      <input class="form-control" type="text" formControlName="internalNumber">
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <label class="control-label col-sm-2">proFormaDate:</label>
+    <div class="col-sm-10">
+      <input class="form-control" type="text" formControlName="proFormaDate">
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <label class="control-label col-sm-2">finalDate:</label>
+    <div class="col-sm-10">
+      <input class="form-control" type="text" formControlName="finalDate">
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <label class="control-label col-sm-2">proFormaNo:</label>
+    <div class="col-sm-10">
+      <input class="form-control" type="text" formControlName="proFormaNo">
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <label class="control-label col-sm-2">finalNo:</label>
+    <div class="col-sm-10">
+      <input class="form-control" type="text" formControlName="finalNo">
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <label class="control-label col-sm-2">providerName:</label>
+    <div class="col-sm-10">
+      <input class="form-control" type="text" formControlName="providerName">
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <label class="control-label col-sm-2">activitiesValue:</label>
+    <div class="col-sm-10">
+      <input class="form-control" type="text" formControlName="activitiesValue">
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <label class="control-label col-sm-2">grossTotal:</label>
+    <div class="col-sm-10">
+      <input class="form-control" type="text" formControlName="grossTotal">
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <label class="control-label col-sm-2">invoiceStatus:</label>
+    <div class="col-sm-10">
+      <input class="form-control" type="text" formControlName="invoiceStatus">
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <label class="control-label col-sm-2">paymentStatus:</label>
+    <div class="col-sm-10">
+      <input class="form-control" type="text" formControlName="paymentStatus">
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <label class="control-label col-sm-2">paymentDueDate:</label>
+    <div class="col-sm-10">
+      <input class="form-control" type="text" formControlName="paymentDueDate">
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+      <button type="submit" class="btn btn-success">Add/Edit</button>
+    </div>
+    <div class="col-sm-4">
+      <button type="button" (click)="closeModal()" class="btn btn-default">Cancel</button>
+    </div>
+  </div>
+
+</form>

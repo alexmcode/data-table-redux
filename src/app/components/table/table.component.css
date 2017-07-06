@@ -1,0 +1,12 @@
+.spinner-parent-div {
+  display: table;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 120px;
+  height: 150px;
+  margin: auto;
+  z-index: 1100;
+}
